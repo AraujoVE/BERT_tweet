@@ -48,7 +48,12 @@ class BertModel():
             output_hidden_states = False, #Whether the model returns all hidden-states.
         )   
         device : Any = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu") #Trying to use cuda, if possilbe, else use cpu
-        if torch.cuda.is_available(): model.cuda()     
+        if torch.cuda.is_available(): 
+            model.cuda()     
+            print("\n\n\nCUDA ON")
+        else:
+            print("\n\n\nCUDA OFF")
+
         self.bertDataFixed = BertData_Fixed(tokenizer,model,device) #Create the fixed data class
         return
 
