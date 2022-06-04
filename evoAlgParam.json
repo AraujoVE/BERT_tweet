@@ -1,0 +1,127 @@
+{
+    "mainFuncName" : "mainEAFunc",
+
+    "offsprings" : {
+        "size" : 3,
+        "params" : {}
+    },
+
+    "popListOrder" : [
+        "ErrorAndEpochs",
+        "BatchSize"
+    ],        
+
+
+    "pop" : {
+        "generalParams" : {
+            "size" : 10,
+            "params" : {}
+        },
+
+        "ErrorAndEpochs" : {
+            "popType" : "masked",
+            "genPop" : {
+                "funcName" : "minMaxValues",
+                "arrayFuncName" : "masked_0",
+                "params" : {
+                    "minGenesNo" : 3,
+                    "maxGenesNo" : 5,
+                    "minGeneValue" : 1,
+                    "maxGeneValue" : 6
+                }
+            },
+
+            "crossover" : {
+                "funcName" : "meanValue",
+                "arrayFuncName" : "masked_0",
+                "params" : {}
+            },
+
+            "mutation" : {
+                "funcName" : "percentage_MoreOrLessTax_Spectrum",
+                "arrayFuncName" : "masked_0",
+                "params" : {
+                    "mutationOccurance" : 0.75,
+                    "mutationQtty" : 1,
+                    "mutationTax" : 0.25
+                }
+            }
+        },
+        "BatchSize" : {
+            "popType" : "nonmasked",
+            "genPop" : {
+                "funcName" : "inListValues",
+                "arrayFuncName" : "nonmasked_0",
+                "params" : {
+                    "genesSize" : 1,
+                    "availableValues" : [32, 64]
+                }
+            },
+
+            "crossover" : {
+                "funcName" : "randomValue",
+                "arrayFuncName" : "nonmasked_0",
+                "params" : {}
+            },
+
+            "mutation" : {
+                "funcName" : "choice_AnyGenPopValue",
+                "arrayFuncName" : "nonmasked_0",
+                "params" : {
+                    "mutationOccurance" : 0.25,
+                    "mutationQtty" : 1
+                }
+            }
+        }
+    },
+
+    "fitness" : {
+        "funcName" : "dontRecalcBest",
+        "params" : {}
+    },
+
+    "sorting" : {
+        "funcName" : "bestFirst",
+        "params" : {}
+    },
+
+    "selection" : {
+        "funcName" : "tournment",
+        "params" : {
+            "parentalsNo" : 2,
+            "popPerTournment" : 3
+        }
+    },
+
+    "preMutation" : {
+        "funcName" : "basic",
+        "params" : {
+            "chromossomesMutatedPerPop" : 10
+        }
+    },
+
+    "preUpdatePop" : {
+        "funcName" : "replaceRandomPop",
+        "params" : {}
+    },
+
+
+    "stopCondition" : {
+        "funcName" : "basicCount",
+        "params" : {
+            "maxIter" : 2
+        }
+    },
+    
+    "fitnessFunctionFixedArguments" : {
+        "basePath" : "/content/drive/Shareddrives/SemioCom/Corpora/Lula_e_Bolsonaro_novo/Anotado/",
+        "validation" : 0.2,
+        "modelPath" : "neuralmind/bert-base-portuguese-cased",
+        "tokenizerPath" : "neuralmind/bert-base-portuguese-cased",
+        "inputDataPath" : "trainingData.csv",
+        "extraVocabPath" : "extraVocab.csv",
+        "preTrainedModelPath" : "/content/drive/Shareddrives/SemioCom/Corpora/Lula_e_Bolsonaro_novo/Anotado/preTrainedModel",
+        "outputDataPath" :  ""
+    }
+
+}

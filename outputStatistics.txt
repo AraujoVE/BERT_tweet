@@ -1,0 +1,208 @@
+###Correct Annotations###
+Vinícius:
+	Total Evaluations:129
+	Appreciation:
+		Total Appreciations:38
+			'Correct':38
+			'Wrong':0
+	Non Appreciation:
+		Total Non Appreciations:91
+			'Correct':91
+			'Wrong':0
+josé:
+	Total Evaluations:471
+	Appreciation:
+		Total Appreciations:192
+			'Correct':192
+			'Wrong':0
+	Non Appreciation:
+		Total Non Appreciations:279
+			'Correct':279
+			'Wrong':0
+Tulio Silva:
+	Total Evaluations:525
+	Appreciation:
+		Total Appreciations:192
+			'Correct':192
+			'Wrong':0
+	Non Appreciation:
+		Total Non Appreciations:333
+			'Correct':333
+			'Wrong':0
+thaisiga:
+	Total Evaluations:452
+	Appreciation:
+		Total Appreciations:144
+			'Correct':144
+			'Wrong':0
+	Non Appreciation:
+		Total Non Appreciations:308
+			'Correct':308
+			'Wrong':0
+Andressa:
+	Total Evaluations:269
+	Appreciation:
+		Total Appreciations:106
+			'Correct':106
+			'Wrong':0
+	Non Appreciation:
+		Total Non Appreciations:163
+			'Correct':163
+			'Wrong':0
+
+###Undefined Annotations###
+Tulio Silva:
+	Total Evaluations:20
+	Appreciation:
+		Total Appreciations: 7
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 0
+			Apreciativo/Apreciativo/Não Apreciativo: 3
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 4
+			Indefinido/Não Apreciativo/Não Apreciativo: 0
+	Non Appreciation:
+		Total Non Appreciations: 11
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 1
+			Apreciativo/Apreciativo/Não Apreciativo: 3
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 6
+			Indefinido/Não Apreciativo/Não Apreciativo: 1
+		Total Undefined: 2
+			Apreciativo/Apreciativo/Indefinido: 1
+			Apreciativo/Indefinido/Não Apreciativo: 0
+			Apreciativo/Apreciativo/Não Apreciativo: 0
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 0
+			Indefinido/Não Apreciativo/Não Apreciativo: 1
+josé:
+	Total Evaluations:64
+	Appreciation:
+		Total Appreciations: 36
+			Apreciativo/Apreciativo/Indefinido: 6
+			Apreciativo/Indefinido/Não Apreciativo: 3
+			Apreciativo/Apreciativo/Não Apreciativo: 7
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 20
+			Indefinido/Não Apreciativo/Não Apreciativo: 0
+	Non Appreciation:
+		Total Non Appreciations: 23
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 0
+			Apreciativo/Apreciativo/Não Apreciativo: 7
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 10
+			Indefinido/Não Apreciativo/Não Apreciativo: 6
+		Total Undefined: 5
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 2
+			Apreciativo/Apreciativo/Não Apreciativo: 0
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 0
+			Indefinido/Não Apreciativo/Não Apreciativo: 3
+Vinícius:
+	Total Evaluations:4
+	Appreciation:
+		Total Appreciations: 2
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 1
+			Apreciativo/Apreciativo/Não Apreciativo: 0
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 1
+			Indefinido/Não Apreciativo/Não Apreciativo: 0
+	Non Appreciation:
+		Total Non Appreciations: 1
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 0
+			Apreciativo/Apreciativo/Não Apreciativo: 0
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 0
+			Indefinido/Não Apreciativo/Não Apreciativo: 1
+		Total Undefined: 1
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 0
+			Apreciativo/Apreciativo/Não Apreciativo: 0
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 0
+			Indefinido/Não Apreciativo/Não Apreciativo: 1
+thaisiga:
+	Total Evaluations:63
+	Appreciation:
+		Total Appreciations: 20
+			Apreciativo/Apreciativo/Indefinido: 6
+			Apreciativo/Indefinido/Não Apreciativo: 0
+			Apreciativo/Apreciativo/Não Apreciativo: 14
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 0
+			Indefinido/Não Apreciativo/Não Apreciativo: 0
+	Non Appreciation:
+		Total Non Appreciations: 43
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 4
+			Apreciativo/Apreciativo/Não Apreciativo: 0
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 30
+			Indefinido/Não Apreciativo/Não Apreciativo: 9
+		Total Undefined: 0
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 0
+			Apreciativo/Apreciativo/Não Apreciativo: 0
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 0
+			Indefinido/Não Apreciativo/Não Apreciativo: 0
+Andressa:
+	Total Evaluations:41
+	Appreciation:
+		Total Appreciations: 10
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 1
+			Apreciativo/Apreciativo/Não Apreciativo: 4
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 5
+			Indefinido/Não Apreciativo/Não Apreciativo: 0
+	Non Appreciation:
+		Total Non Appreciations: 19
+			Apreciativo/Apreciativo/Indefinido: 0
+			Apreciativo/Indefinido/Não Apreciativo: 0
+			Apreciativo/Apreciativo/Não Apreciativo: 4
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 14
+			Indefinido/Não Apreciativo/Não Apreciativo: 1
+		Total Undefined: 12
+			Apreciativo/Apreciativo/Indefinido: 5
+			Apreciativo/Indefinido/Não Apreciativo: 3
+			Apreciativo/Apreciativo/Não Apreciativo: 0
+			Indefinido/Indefinido: 0
+			Apreciativo/Indefinido/Indefinido: 0
+			Indefinido/Indefinido/Não Apreciativo: 0
+			Apreciativo/Não Apreciativo/Não Apreciativo: 0
+			Indefinido/Não Apreciativo/Não Apreciativo: 4
