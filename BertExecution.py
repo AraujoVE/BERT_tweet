@@ -37,11 +37,10 @@ def bertExecution(fixedArguments,trainableParams):
 
     bertModel : BertModel = BertModel(bertModelParams)
     bertModel.setHyperparameters(bertHyperparams)
-    bertModel.train()
+    return bertModel.train()
 
 fixedParams = json.load(open("evoAlgParam.json"))["fitnessFunctionFixedArguments"]
 print(fixedParams)
 treinableParams = [5, 4, 3, 2, ma.masked ,32]
-bertExecution(fixedParams,treinableParams)
-'''
-'''
+fitnessResult = bertExecution(fixedParams,treinableParams)
+print(f"fitnessResult =\n\t{fitnessResult}")
