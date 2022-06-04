@@ -109,7 +109,7 @@
     "stopCondition" : {
         "funcName" : "basicCount",
         "params" : {
-            "maxIter" : 2
+            "maxIter" : 100
         }
     },
     

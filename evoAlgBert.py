@@ -8,8 +8,8 @@ from numpy import ma
 
 def mockFitnessFunc(fixedParams,variableParams): return variableParams[0] / (sum([el for el in variableParams[:-1] if el != -1]) + 1)
 
-evoAlgIter = EvoAlgIter(mockFitnessFunc,"./evoAlgParam.json") 
-#evoAlgIter = EvoAlgIter(bertExecution,"./evoAlgParam.json") 
+#evoAlgIter = EvoAlgIter(mockFitnessFunc,"./evoAlgParam.json") 
+evoAlgIter = EvoAlgIter(bertExecution,"./evoAlgParam.json") 
 bestParams = evoAlgIter.run()
 
 batchSize = bestParams["params"][-1]
