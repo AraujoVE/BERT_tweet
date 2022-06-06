@@ -7,7 +7,7 @@ import numpy.typing as npt
 class StopCondition:
     def __init__(self,eaAlg : Type):
         self.ea : Type = eaAlg
-        self.execFunc : Callable = getattr(self, self.ea.stopConditionFuncName)
+        self.execFunc : Callable = getattr(self, self.ea.stopConditionObjName)
 
     def stop(self) -> bool:
         return self.execFunc()

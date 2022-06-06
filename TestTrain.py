@@ -6,7 +6,7 @@ import torch
 from sklearn.metrics import matthews_corrcoef
 from numpy import typing as npt
 from typing import List, Any
-
+import json
 class TestTrain:
     def __init__(self,bertDataInitial : BertData_Initial, bertDataHyperparameters : BertData_Hyperparameters, bertDataVariable : BertData_Variable, bertDataFixed : BertData_Fixed) -> None:
         self.bertDataInitial : BertData_Initial = bertDataInitial
@@ -100,11 +100,13 @@ class TestTrain:
                 return_dict=False
             ) #Perform a forward pass
             
+        self.totalEvalLoss += loss.item()
         #Move logits and labels to CPU
         logits = logits.detach().cpu().numpy()
         label_ids = labels.to('cpu').numpy()
         self.predictions.append(np.array(logits))
         self.trueLabels.append(np.array(label_ids))
+
 
         #totalEvalAccuracy += flatAccuracy(logits, label_ids) #Calculate the accuracy for this batch of test sentences, and accumulate it over all batches.
 
@@ -128,6 +130,7 @@ class TestTrain:
 
     #Get the MCC final score
     def fullMatthewsCoef(self):
+
         #Concatenate the predictions
         flat_predictions = np.concatenate(self.predictions, axis=0) #Combine the results across all batches. 
 
@@ -144,9 +147,8 @@ class TestTrain:
 
 
     def validate(self,epoch_i,t0):
-        avg_train_loss = self.totalTrainLoss / len(self.bertDataVariable.trainDataloader) #Calculate the average loss over all of the batches.
         
-        training_time = self.printTrainTime(avg_train_loss,t0) #Measure how long this epoch took.
+        training_time = self.printTrainTime(self.avgTrainLoss,t0) #Measure how long this epoch took.
             
         print("\nRunning Validation...")
 
@@ -162,9 +164,18 @@ class TestTrain:
         #Calculate eval loss and append prediction and true labels from each batch to future calculations
         for batch in self.bertDataVariable.validationDataloader:
             self.valBatchIter(batch)
-
+        self.avgEvalLoss = self.totalEvalLoss/len(self.bertDataVariable.validationDataloader)
         self.totalEvalAccuracy = self.fullMatthewsCoef() 
 
+    def writeStatistics(self):
+        statisticObj = {
+            "AvgTrainLoss": self.avgTrainLoss,
+            "AvgEvalLoss": self.avgEvalLoss,
+            "MatthewsCoef": self.totalEvalAccuracy
+        }
+        fullJson = json.load(open("statistics.json"))
+        fullJson["epochs"][str(self.epochIter)] = statisticObj
+        with open("statistics.json","w") as f: json.dump(fullJson,f)
 
 
 
@@ -175,10 +186,10 @@ class TestTrain:
 
         applyValidation : bool = bool(self.bertDataInitial.validation)
         self.generalIter = 0
-        ii = 0
+        self.epochIter = 0
         for epoch_i in range(self.bertDataHyperparameters.epochs):
-            #print("\t\t#",ii)
-            ii+= 1
+            #print("\t\t#",self.epochIter )
+            self.epochIter += 1
 
             t0 = self.printTraining(epoch_i)
             self.totalTrainLoss = 0 #Reset the total loss for this epoch.
@@ -188,8 +199,12 @@ class TestTrain:
             #For each batch of training data...
             for step, batch in enumerate(self.bertDataVariable.trainDataloader):
                 self.trainBatchIter(step,batch,t0)
+            self.avgTrainLoss = self.totalTrainLoss / len(self.bertDataVariable.trainDataloader) #Calculate the average loss over all of the batches.
+            
+            if applyValidation: self.validate(self.bertDataHyperparameters.epochs-1,t0)
 
-            if applyValidation: self.validate(epoch_i,t0)
+            self.writeStatistics()    
+
 
         return self.totalEvalAccuracy
 

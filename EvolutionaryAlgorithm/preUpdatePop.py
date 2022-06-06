@@ -8,7 +8,7 @@ class PreUpdatePop:
 
     def __init__(self,eaAlg : Type):
         self.ea : Type = eaAlg
-        self.execFunc : Callable = getattr(self, self.ea.preUpdatePopFuncName)
+        self.execFunc : Callable = getattr(self, self.ea.preUpdatePopObjName)
 
     def preUpdatePop(self) -> None:
         self.execFunc()

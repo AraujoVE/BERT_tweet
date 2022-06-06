@@ -2,7 +2,7 @@
     "mainFuncName" : "mainEAFunc",
 
     "offsprings" : {
-        "size" : 3,
+        "size" : 14,
         "params" : {}
     },
 
@@ -25,7 +25,7 @@
                 "arrayFuncName" : "masked_0",
                 "params" : {
                     "minGenesNo" : 3,
-                    "maxGenesNo" : 5,
+                    "maxGenesNo" : 8,
                     "minGeneValue" : 1,
                     "maxGeneValue" : 6
                 }
@@ -88,15 +88,15 @@
     "selection" : {
         "funcName" : "tournment",
         "params" : {
-            "parentalsNo" : 2,
-            "popPerTournment" : 3
+            "parentalsNo" : 3,
+            "popPerTournment" : 5
         }
     },
 
     "preMutation" : {
         "funcName" : "basic",
         "params" : {
-            "chromossomesMutatedPerPop" : 10
+            "chromossomesMutatedPerPop" : 9
         }
     },
 
@@ -107,17 +107,27 @@
 
 
     "stopCondition" : {
-        "funcName" : "basicCount",
+        "funcName" : "valueGreater",
         "params" : {
-            "maxIter" : 100
+            "threshold" : 0.75
         }
     },
     
-    "fitnessFunctionFixedArguments" : {
+    "fitnessFunctionFixedArgumentsBert" : {
         "basePath" : "/content/drive/Shareddrives/SemioCom/Corpora/Lula_e_Bolsonaro_novo/Anotado/",
         "validation" : 0.2,
         "modelPath" : "neuralmind/bert-base-portuguese-cased",
         "tokenizerPath" : "neuralmind/bert-base-portuguese-cased",
+        "inputDataPath" : "trainingData.csv",
+        "extraVocabPath" : "extraVocab.csv",
+        "preTrainedModelPath" : "/content/drive/Shareddrives/SemioCom/Corpora/Lula_e_Bolsonaro_novo/Anotado/preTrainedModel",
+        "outputDataPath" :  ""
+    },
+    "fitnessFunctionFixedArguments" : {
+        "basePath" : "/content/drive/Shareddrives/SemioCom/Corpora/Lula_e_Bolsonaro_novo/Anotado/",
+        "validation" : 0.2,
+        "modelPath" : "/home/tulio/data/brobertatweets/brobertatweets-model",
+        "tokenizerPath" : "/home/tulio/data/brobertatweets/brobertatweets-tokenizer",
         "inputDataPath" : "trainingData.csv",
         "extraVocabPath" : "extraVocab.csv",
         "preTrainedModelPath" : "/content/drive/Shareddrives/SemioCom/Corpora/Lula_e_Bolsonaro_novo/Anotado/preTrainedModel",

@@ -8,7 +8,7 @@ class PreMutation:
 
     def __init__(self,eaAlg : Type):
         self.ea : Type = eaAlg
-        self.execFunc : Callable = getattr(self, self.ea.preMutationFuncName)
+        self.execFunc : Callable = getattr(self, self.ea.preMutationObjName)
 
     def preMutate(self) -> None:
         self.execFunc()

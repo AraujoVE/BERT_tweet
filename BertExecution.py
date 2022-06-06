@@ -3,7 +3,7 @@ from BertModel import BertModel
 import json
 from numpy import ma
 
-def bertExecution(fixedArguments,trainableParams):
+def bertExecution(fitnessIndex,fixedArguments,trainableParams):
     #Getting fixed arguments from dict param 'fixedArguments'
     validation = fixedArguments["validation"]
     modelPath = fixedArguments["modelPath"]
@@ -37,10 +37,38 @@ def bertExecution(fixedArguments,trainableParams):
 
     bertModel : BertModel = BertModel(bertModelParams)
     bertModel.setHyperparameters(bertHyperparams)
-    return bertModel.train()
+    jsonText = {
+        "batchSize": batchSize,
+        "epochsNo": epochs,
+        "learningRates": learningRates,
+        "epochs": {}
+    }
+    with open("statistics.json","w") as f: json.dump(jsonText,f)
 
+
+    print(f"cur Values = {trainableParams}")
+    bertModelResults = bertModel.train()
+    with open("statistics.json","r") as f: d = f.read().strip()
+    with open("statisticsFull.json","r") as fil: f = fil.read().strip()
+    with open("statisticsFull.json","w") as fil: fil.write(f+"\n"+d)
+
+
+
+    return {"index":fitnessIndex,"value":bertModelResults}
 fixedParams = json.load(open("evoAlgParam.json"))["fitnessFunctionFixedArguments"]
 print(fixedParams)
-treinableParams = [5, 4, 3, 2, ma.masked ,32]
-fitnessResult = bertExecution(fixedParams,treinableParams)
-print(f"fitnessResult =\n\t{fitnessResult}")
+treinableParamsList = [
+    [3, 2.6, 2.2, 1.8, 1.4, 1, 32],
+    [3, 2.6, 2.2, 1.8, 1.4, 1, 64],
+    [5, 4.4, 3.8, 3.2, 2.6, 2, 32],
+    [5, 4.4, 3.8, 3.2, 2.6, 2, 64]
+]
+
+bestParam = {'value':None,'fit':-1.1}
+for trainableParams in treinableParamsList:
+    for i in range(3):
+        fitnessResultCur = bertExecution(0,fixedParams,trainableParams)['value']
+
+print(f"Best Overall = {bestParam}")
+'''
+'''

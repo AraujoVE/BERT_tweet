@@ -8,7 +8,7 @@ class Selection:
 
     def __init__(self,eaAlg : Type):
         self.ea : Type = eaAlg
-        self.execFunc : Callable = getattr(self, self.ea.selectionFuncName)
+        self.execFunc : Callable = getattr(self, self.ea.selectionObjName)
 
     def select(self) -> None:
         self.ea.globalVars.setAttr("parentalsIndex",[])

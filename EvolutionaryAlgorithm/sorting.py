@@ -6,7 +6,7 @@ class Sorting:
 
     def __init__(self,eaAlg : Type):
         self.ea : Type = eaAlg
-        self.execFunc : Callable = getattr(self, self.ea.sortingFuncName)
+        self.execFunc : Callable = getattr(self, self.ea.sortingObjName)
 
     def sort(self) -> None:
         self.ea.globalVars.setAttr("orderArray",np.arange(self.ea.popSize))

@@ -8,7 +8,7 @@ import os
 import json
 
 
-from transformers import AutoModel, AutoTokenizer, BertForSequenceClassification, AdamW, get_linear_schedule_with_warmup, BertTokenizer
+from transformers import AutoModel, AutoTokenizer, BertForSequenceClassification, AdamW, get_linear_schedule_with_warmup, BertTokenizer, RobertaForSequenceClassification, RobertaTokenizer
 
 import random
 import time
@@ -33,13 +33,13 @@ class BertModel():
 
     def __init__(self,bertData : BertData_Initial):
         self.bertDataInitial = bertData
-        self.setFixedData() #Generate tokenize, model and device
+        self.setFixedDataRoberta() #Generate tokenize, model and device
         self.incrementVocab() #Increase vocabulary
         self.tokenizeSentences() #Tokenize the sentences
 
 
     #Generate the model, tokenizer and device
-    def setFixedData(self) -> None:
+    def setFixedDataBert(self) -> None:
         tokenizer : Any = BertTokenizer.from_pretrained(self.bertDataInitial.tokenizerPath,do_lower_case=False)
         model = BertForSequenceClassification.from_pretrained(
             self.bertDataInitial.modelPath, #Use the chosen model.
@@ -57,12 +57,36 @@ class BertModel():
         self.bertDataFixed = BertData_Fixed(tokenizer,model,device) #Create the fixed data class
         return
 
+    #Generate the model, tokenizer and device
+    def setFixedDataRoberta(self) -> None:
+        tokenizer : Any = RobertaTokenizer.from_pretrained(self.bertDataInitial.tokenizerPath,do_lower_case=False)
+        model = RobertaForSequenceClassification.from_pretrained(
+            self.bertDataInitial.modelPath, #Use the chosen model.
+            num_labels = 2, #The number of output labels--2 for binary classification. You can increase this for multi-class tasks.   
+            output_attentions = False, #Whether the model returns attentions weights.
+            output_hidden_states = False #Whether the model returns all hidden-states.
+        )   
+        device : Any = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu") #Trying to use cuda, if possilbe, else use cpu
+        if torch.cuda.is_available(): 
+            model.cuda()     
+            print("\n\n\nCUDA ON")
+        else:
+            print("\n\n\nCUDA OFF")
+
+        self.bertDataFixed = BertData_Fixed(tokenizer,model,device) #Create the fixed data class
+        return
+
+
+
+
+
     #Increase vocabulary
     def incrementVocab(self) -> None:
         if self.bertDataInitial.testMode or self.bertDataInitial.extraVocabPath == '': return #Return when not in test mode or when extra vocab not present
         newTokens = list(pd.read_csv(self.bertDataInitial.extraVocabPath)["vocab"]) #Get the new tokens
-        self.bertDataFixed.tokenizer.add_tokens(newTokens) #Add the new tokens to the tokenizer
-        self.bertDataFixed.model.resize_token_embeddings(len(self.bertDataFixed.tokenizer)) #Resize the embeddings to fit the new vocabulary
+        if len(newTokens) > 0:
+            self.bertDataFixed.tokenizer.add_tokens(newTokens) #Add the new tokens to the tokenizer
+            self.bertDataFixed.model.resize_token_embeddings(len(self.bertDataFixed.tokenizer)) #Resize the embeddings to fit the new vocabulary
 
     #Tokenize the sentence and set the input labels when not in test mode
     def tokenizeSentences(self) -> None:
@@ -76,6 +100,7 @@ class BertModel():
                 sentence,                     # Sentence to encode.
                 add_special_tokens = True,    # Add '[CLS]' and '[SEP]'
                 max_length = maxTokenSize,             # Pad & truncate all sentences.
+                padding='max_length',
                 pad_to_max_length = True,     # Do padding
                 return_attention_mask = True, # Construct attn. masks.
                 return_tensors = 'pt',        # Return pytorch tensors.
